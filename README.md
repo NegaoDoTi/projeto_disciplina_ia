@@ -15,7 +15,8 @@ Windows
     4. Dentro do ambiente virtual que irá aparecer como (projeto_disciplina_ia) para instalar todas as 
     dependencias do projeto você deve executar o seguinte comando: "pipenv install"
     OBS: caso a lib pipenv não seja encontrada dentro ambiente virtual você deve executar o comando 2 
-    novamente so que desta vez dentro do ambiente virutal e só após isto executar novamente o comando: "pipenv install"
+    novamente so que desta vez dentro do ambiente virutal e só após isto executar novamente o comando: 
+    "pipenv install"
 
 Linux
 
