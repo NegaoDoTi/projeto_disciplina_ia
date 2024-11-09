@@ -13,7 +13,7 @@ class Index:
         if req.is_json:
             data = req.get_json()
             if "message" not in data or not data["message"]:
-                return jsonify({"message" : "Campo \"message\" ausente ou inválido."})
+                return jsonify({"message" : 'Campo "message" ausente ou inválido.'}), 400
             
             grock_message = consult_grock_ai(data["message"])
             

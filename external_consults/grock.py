@@ -8,7 +8,7 @@ def consult_grock_ai(message:str) -> str:
             "messages" : [
                 {
                     "role" : "system",
-                    "content" : "Você é um assistente que tira duvidas sobre doação de sangue no Brasil, apenas deve responder duvidas sobre esse assunto nada mais!"
+                    "content" : "Você é um assistente que tira duvidas sobre doação de sangue no Brasil, apenas deve responder duvidas sobre esse assunto nada mais! Caso perguntarem seu nome você deve responder Fire Force AI"
                 },
                 {
                     "role" : "user",
