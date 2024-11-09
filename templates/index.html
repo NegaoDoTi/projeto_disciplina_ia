@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doação de Sangue</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.css')}}">
 </head>
 <body>
     <div class="container-fluid vh-100 d-flex flex-column p-0">
         <!-- Header-->
         <header class="d-flex flex-wrap justify-content-center py-3 mb-0 bg-danger" style="border-bottom: 3px solid black;">
-            <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none ms-5" href="/">
+            <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-light text-decoration-none ms-5" href="/">
                 <img src="{{ url_for('static', filename='imgs/fireforce.icon.jpeg') }}" alt="Fire Force Icon" style="width: 40px; height: auto;">
                 <span class="fs-3">Fire Force</span>
             </a>
@@ -24,17 +25,102 @@
             </div>
             <!-- PDF -->
 
-            <div class="col-6 d-flex justify-content-center align-items-center bg-white p-0">
-                <p>Conteúdo do lado direito</p>
+            <div class="col-6 d-flex justify-content-center align-items-center p-0 text-light bg-dark">
+                <div class="ml-2 mt-auto mr-2">
+                    <h2 class="mb-3">A importância de doar sangue!</h2> <!-- Título fora do <p> -->
+                        <p class="m-3">
+                            A doação de sangue é um ato de generosidade que pode salvar vidas e fazer 
+                            uma diferença significativa na comunidade. O sangue é um recurso vital para 
+                            o tratamento de diversas condições médicas, como acidentes, cirurgias, 
+                            tratamentos oncológicos, e em casos de doenças crônicas, como a anemia. 
+                            No entanto, os estoques de sangue nos bancos de sangue são frequentemente baixos, 
+                            e a necessidade de doações é constante.
+                        </p>
+                        <p class="m-3">
+                            Ao doar sangue, você se torna parte de uma rede de solidariedade que oferece 
+                            esperança e apoio a pessoas em momentos críticos. Cada doação pode beneficiar 
+                            até quatro pessoas, dependendo dos componentes do sangue que são separados e 
+                            utilizados. Além disso, a doação de sangue é um processo simples, rápido e 
+                            seguro, que não exige muito tempo, mas tem um impacto duradouro.
+                        </p>
+                        <p class="m-3">
+                            Doar sangue também é um exemplo de responsabilidade social. Em tempos de 
+                            emergência, como desastres naturais ou pandemias, os estoques de sangue podem 
+                            se esgotar rapidamente, o que torna a doação ainda mais crucial. Mesmo em tempos 
+                            tranquilos, a necessidade de sangue é contínua, já que ele tem uma vida útil 
+                            limitada e deve ser constantemente renovado.
+                        </p>
+                        <p class="m-3">
+                            A conscientização sobre a importância de doar sangue e a remoção de mitos sobre 
+                            o processo podem ajudar a aumentar o número de doadores e garantir que o sistema 
+                            de saúde tenha os recursos necessários para salvar vidas. A doação de sangue é 
+                            um gesto simples, mas de valor incalculável, e pode ser o primeiro passo para 
+                            fazer a diferença na vida de alguém.
+                        </p>
+                </div>
             </div>
         </div>
 
         <!-- Footer -->
-        <footer class="bg-danger text-dark text-center py-3 mt-auto w-100" style="border-top: 3px solid black;">
-            &copy; 2024 Fire Force. Todos os direitos reservados.
+        <footer class="bg-danger text-light text-center py-3 mt-auto w-100" style="border-top: 3px solid black;">
+            <div class="container d-flex justify-content-between">
+                <!-- Lista de colaboradores -->
+                <div class="text-left">
+                    <ul class="list-unstyled">
+                        <li><strong style="font-size: 1.2em;">Vinicius Luciano da Silva</strong></li>
+                        <li>Eder Fabiano da Silva</li>
+                        <li>Fabio Diogo Torres</li>
+                        <li>Tafnes Diogo Torres</li>
+                    </ul>
+                </div>
+
+                <!-- Links para redes sociais -->
+                <div class="text-right">
+                    <a href="https://www.linkedin.com/in/vinicius-luciano-520995275/" target="_blank" class="text-dark mx-2">
+                        <img src="{{ url_for('static', filename='imgs/linkedin.png') }}" alt="LinkedIn" width="50">
+                    </a>
+                    <a href="https://www.instagram.com/vinicius.luciano.927/" target="_blank" class="text-dark mx-2">
+                        <img src="{{ url_for('static', filename='imgs/instagram.png') }}" alt="Instagram" width="50">
+                    </a>
+                </div>
+            </div>
+            <p>&copy; 2024 Fire Force. Todos os direitos reservados.</p>
         </footer>
     </div>
 
+    <!-- Button Modal-->
+    <button class="floating-btn bg-danger" data-bs-toggle="modal" data-bs-target="#chatModal">
+        <img src="{{ url_for('static', filename='imgs/fireforce_ai_icon.png') }}" alt="Fire Force Ai Icon" width="50">
+    </button>
+        <!-- Button Modal-->
+
+    <div class="modal fade" id="chatModal" tabindex="-1" aria-labelledby="chatModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content bg-danger">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="chatModalLabel">Chat Fire Force IA</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Área de mensagens (chat) -->
+                    <div id="chat-box" class="mb-3" style="max-height: 400px; overflow-y: auto;">
+                        <div class="message bot-message bg-light">
+                            <h6 class="m-3">Fire Force IA</h6>
+                            <p class="m-3">Olá! Eu sou a Fire Force IA e estou aqui para ajudar a tirar duvidas sobre Doação de sangue!</p>
+                        </div>
+                    </div>
+                    <!-- Campo de entrada de mensagem -->
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="user-message" placeholder="Digite sua mensagem...">
+                        <button class="btn btn-primary" id="send-message">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom_css.css') }}">
     <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.bundle.min.js')}}" ></script>
+    <script src="{{ url_for('static', filename='js/chat_script.js') }}"></script>
 </body>
 </html>
