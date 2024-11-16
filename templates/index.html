@@ -6,13 +6,14 @@
     <title>Doação de Sangue</title>
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.css')}}">
+    <script src="https://kit.fontawesome.com/0cb1774f40.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container-fluid vh-100 d-flex flex-column p-0">
+    <div class="container-fluid min-vh-100 d-flex flex-column p-0 bg-dark">
         <!-- Header-->
-        <header class="d-flex flex-wrap justify-content-center py-3 mb-0 bg-danger" style="border-bottom: 3px solid black;">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-0 bg-red page-header">
             <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-light text-decoration-none ms-5" href="/">
-                <img src="{{ url_for('static', filename='imgs/fireforce.icon.jpeg') }}" alt="Fire Force Icon" style="width: 40px; height: auto;">
+                <img src="{{ url_for('static', filename='imgs/logo.png') }}" alt="Fire Force Icon" class="logo">
                 <span class="fs-3">Fire Force</span>
             </a>
         </header>
@@ -20,14 +21,14 @@
 
         <div class="row flex-grow-1 m-0">
             <!-- PDF -->
-            <div class="col-6 d-flex justify-content-center align-items-center bg-light p-0">
-                <embed src="{{ url_for('static', filename='pdfs/aluno_sangue_bom.pdf') }}" type="application/pdf" width="100%" height="100%">
+            <div class="pdf-embed-container col-lg-6 d-flex lg-justify-content-center lg-align-items-center bg-light p-0">
+                <embed src="{{ url_for('static', filename='pdfs/aluno_sangue_bom.pdf') }}" type="application/pdf" width="100%" height="100%" class="pdf-embed">
             </div>
             <!-- PDF -->
 
-            <div class="col-6 d-flex justify-content-center align-items-center p-0 text-light bg-dark">
-                <div class="ml-2 mt-auto mr-2">
-                    <h2 class="mb-3">A importância de doar sangue!</h2> <!-- Título fora do <p> -->
+            <div class="col-lg-6 d-flex justify-content-center align-items-center p-0 text-light">
+                <div class="ml-2 mr-2">
+                    <h2 class="mb-3 ml-3">A importância de doar sangue!</h2> <!-- Título fora do <p> -->
                         <p class="m-3">
                             A doação de sangue é um ato de generosidade que pode salvar vidas e fazer 
                             uma diferença significativa na comunidade. O sangue é um recurso vital para 
@@ -62,25 +63,27 @@
         </div>
 
         <!-- Footer -->
-        <footer class="bg-danger text-light text-center py-3 mt-auto w-100" style="border-top: 3px solid black;">
+        <footer class="bg-red text-light text-center py-3 mt-auto w-100 page-footer">
             <div class="container d-flex justify-content-between">
                 <!-- Lista de colaboradores -->
                 <div class="text-left">
                     <ul class="list-unstyled">
                         <li><strong style="font-size: 1.2em;">Vinicius Luciano da Silva</strong></li>
-                        <li>Eder Fabiano da Silva</li>
+                        <li>Éder Fabiano da Silva</li>
                         <li>Fabio Diogo Torres</li>
-                        <li>Tafnes Diogo Torres</li>
+                        <li>Táfnes Diogo Torres</li>
                     </ul>
                 </div>
 
                 <!-- Links para redes sociais -->
                 <div class="text-right">
                     <a href="https://www.linkedin.com/in/vinicius-luciano-520995275/" target="_blank" class="text-dark mx-2">
-                        <img src="{{ url_for('static', filename='imgs/linkedin.png') }}" alt="LinkedIn" width="50">
+                        <!-- <img src="{{ url_for('static', filename='imgs/linkedin.png') }}" alt="LinkedIn" width="50"> -->
+                        <i class="fa-brands fa-linkedin"></i>
                     </a>
                     <a href="https://www.instagram.com/vinicius.luciano.927/" target="_blank" class="text-dark mx-2">
-                        <img src="{{ url_for('static', filename='imgs/instagram.png') }}" alt="Instagram" width="50">
+                        <!-- <img src="{{ url_for('static', filename='imgs/instagram.png') }}" alt="Instagram" width="50"> -->
+                        <i class="fa-brands fa-instagram"></i>
                     </a>
                 </div>
             </div>
@@ -96,17 +99,17 @@
 
     <div class="modal fade" id="chatModal" tabindex="-1" aria-labelledby="chatModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
-            <div class="modal-content bg-danger">
+            <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="chatModalLabel">Chat Fire Force IA</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
                 <div class="modal-body">
                     <!-- Área de mensagens (chat) -->
-                    <div id="chat-box" class="mb-3" style="max-height: 400px; overflow-y: auto;">
-                        <div class="message bot-message bg-light">
-                            <h6 class="m-3">Fire Force IA</h6>
-                            <p class="m-3">Olá! Eu sou a Fire Force IA e estou aqui para ajudar a tirar duvidas sobre Doação de sangue!</p>
+                    <div id="chat-box" class="mb-3">
+                        <div class="message bot-message">
+                            <h6>Fire Force IA</h6>
+                            <p>Olá! Eu sou a Fire Force IA e estou aqui para ajudar a tirar duvidas sobre Doação de sangue!</p>
                         </div>
                     </div>
                     <!-- Campo de entrada de mensagem -->
