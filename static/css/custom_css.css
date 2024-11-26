@@ -6,6 +6,36 @@
     --accent-orange: #dead4c;
 }
 
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 121px);
+}
+
+.modal-body ul.help-topics {
+    padding: 0;
+    margin: 5px 0 0;
+}
+
+.modal-body ul.help-topics li {
+    display: inline-block;
+    border: 1px solid #7f181b;
+    padding: 2px 10px;
+    border-radius: 7.5px;
+    margin: 3px 0;
+    cursor: pointer;
+    transition: 0.1s ease-out;
+}
+
+.modal-body ul.help-topics li:hover {
+    background: #f7f3f3;
+    border-color: rgb(127 24 27 / 30%);
+}
+
+.modal-body ul.help-topics:hover li:not(:hover) {
+    opacity: .4;
+}
+
 .floating-btn {
     position: fixed;
     bottom: 20px; 
@@ -26,6 +56,10 @@
     background-color: #0056b3; 
 }
 
+body.modal-open button.floating-btn {
+    right: 37px;
+}
+
 header.page-header {
     border-bottom: var(--border-header-footer);
     z-index: 10;
@@ -39,17 +73,38 @@ header.page-header img.logo {
 
 header.page-header span.fs-3, h1, h2, h3, h4, h5, h6 {
     color: var(--accent-orange);
+    font-weight: 600;
 }
 
-footer.page-footer {
-    border-top: var(--border-header-footer);
-    z-index: 10;
+footer.page-footer .footer-left strong {
+    font-size: 1.05em;
 }
 
-footer.page-footer .fa-brands {
-    font-size: 50px;
-    color: #fff;
+footer.page-footer .footer-left a {
+    display: inline-block;
+}
+
+footer.page-footer .footer-left .fa-brands {
+    font-size: 1.2em;
     color: var(--accent-orange);
+}
+
+footer.page-footer .footer-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    right: 10px;
+}
+
+footer.page-footer .footer-right img {
+    width: 50px;
+}
+
+footer.page-footer .footer-right p {
+    font-weight: 600;
+    margin: 0;
 }
 
 .ml-3 {
@@ -61,11 +116,11 @@ footer.page-footer .fa-brands {
 }
 
 div#chat-box {
-    max-height: 70vh;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+    flex: 1;
 }
 
 div#chat-box::-webkit-scrollbar {
@@ -101,7 +156,6 @@ div#chat-box::-webkit-scrollbar-button {
 }
 
 .message.bot-message {
-    background-color: rgb(250, 248, 248);
     background-color: #f7f3f3;
     align-self: flex-start;
 }
@@ -129,12 +183,24 @@ button#send-message {
     border-color: var(--btn-hover-border-color);
 }
 
-#chatModal input#user-message {
-    border-color: var(--btn-hover-border-color);
+#chatModal .input-group:has(:focus) {
+    box-shadow: 0 0 1.75px 0.25rem var(--focus-hover-form-color);
+    border-radius: var(--bs-border-radius);
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+/* Fallback for unsupported :has */
 #chatModal input#user-message:focus, input#user-message:focus + button.btn {
     box-shadow: 0 0 1.75px 0.25rem var(--focus-hover-form-color);
+}
+
+#chatModal .input-group:has(:focus) input#user-message:focus,
+#chatModal .input-group:has(:focus) input#user-message:focus + button.btn {
+    box-shadow: none;
+}
+
+#chatModal input#user-message {
+    border-color: var(--btn-hover-border-color);
 }
 
 #chatModal button.btn:hover {
@@ -186,7 +252,23 @@ button#send-message {
     animation-delay: 0.5s;
 }
 
-div.pdf-embed-container {
+main {
+    border-bottom: var(--border-header-footer);
+}
+
+main article {
+    width: clamp(75ch, 50vw, 90ch);
+}
+
+main article h2 {
+    margin: 0 0 1rem 1rem;
+}
+
+main article p {
+    margin: 1rem;
+}
+
+main aside.pdf-embed-container {
     position: relative;
 }
 
@@ -197,16 +279,12 @@ embed.pdf-embed {
     z-index: 0;
 }
 
-/* @media (max-width: 575.98px) { ... }
-
-@media (max-width: 767.98px) { ... } */
-
 @media (max-width: 991.98px) {
-    div.pdf-embed-container {
+    main aside.pdf-embed-container {
         height: 50vh;
     }
 
-    div.pdf-embed-container embed.pdf-embed + div {
+    main aside.pdf-embed-container embed.pdf-embed + div {
         margin-top: -57px;
     }
 
@@ -217,7 +295,7 @@ embed.pdf-embed {
 }
 
 @media (min-width: 991.98px) {    
-    div.pdf-embed-container {
+    main aside.pdf-embed-container {
         max-width: 884px;
     }
 
@@ -225,7 +303,3 @@ embed.pdf-embed {
         height: calc(100% + 57px);
     }
 }
-
-/* @media (max-width: 1199.98px) { ... }
-
-@media (max-width: 1399.98px) { ... } */

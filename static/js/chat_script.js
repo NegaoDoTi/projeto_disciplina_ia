@@ -1,10 +1,18 @@
-document.getElementById('send-message').addEventListener('click', enviarMensagem)
-document.getElementById('user-message').addEventListener('keypress', function(e) {
+let sendMessageBtn = document.getElementById('send-message')
+let mensagemUsuario = document.getElementById('user-message')
+
+
+document.querySelectorAll('ul.help-topics li').forEach(topic => {
+    topic.addEventListener('click', fazerPerguntaSugerida)
+})
+sendMessageBtn.addEventListener('click', enviarMensagem)
+mensagemUsuario.addEventListener('keypress', function(e) {
     if (e.key == 'Enter') enviarMensagem()
 })
 
 function enviarMensagem() {
-    const userMessage = document.getElementById('user-message').value.trim()
+    const userMessage = mensagemUsuario.value.trim()
+    console.log('enviando mensagem', userMessage)
 
     if (userMessage !== "") {
         const chatBox = document.getElementById('chat-box')
@@ -57,7 +65,7 @@ function formatarTexto(input) {
     // Substitui *texto* por <i>texto</i>
     resultado = resultado.replace(/\*(.*?)\*/g, '<i>$1</i>');
     
-    // Substitui ~~texto~~ por <b>texto</b>
+    // Substitui ~~texto~~ por <s>texto</s>
     resultado = resultado.replace(/\~\~(.*?)\~\~/g, '<s>$1</s>');
     
     return resultado;
@@ -77,4 +85,23 @@ function gerarTexto(classe, mensagem) {
     }
 
     return `<div class="message ${classe}-message"><h6>${origem}</h6><p>${mensagem}</p></div>`
+}
+
+function fazerPerguntaSugerida(e) {
+    let perguntaSugerida = e.target
+    let pergunta = perguntaSugerida.innerText
+    if (mensagemUsuario.value !== '') {
+        var r = confirm('Você vai perder a mensagem digitada. Continuar?')
+        if (r == true) enviarPergunta()
+    } else {
+        enviarPergunta()
+    }
+
+    function enviarPergunta() {
+        console.log('enviando pergunta')
+        mensagemUsuario.value = pergunta
+        console.log(mensagemUsuario.value, pergunta)
+        perguntaSugerida.remove()
+        enviarMensagem()
+    }
 }

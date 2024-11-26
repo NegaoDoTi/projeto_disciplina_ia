@@ -9,7 +9,7 @@
     <script src="https://kit.fontawesome.com/0cb1774f40.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container-fluid min-vh-100 d-flex flex-column p-0 bg-dark">
+    <div class="container-fluid min-vh-100 d-flex flex-column p-0 bg-red">
         <!-- Header-->
         <header class="d-flex flex-wrap justify-content-center py-3 mb-0 bg-red page-header">
             <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-light text-decoration-none ms-5" href="/">
@@ -19,17 +19,17 @@
         </header>
         <!-- Header-->
 
-        <div class="row flex-grow-1 m-0">
+        <main class="row flex-grow-1 m-0 bg-dark">
             <!-- PDF -->
-            <div class="pdf-embed-container col-lg-6 d-flex lg-justify-content-center lg-align-items-center bg-light p-0">
+            <aside class="pdf-embed-container col-lg-6 d-flex lg-justify-content-center lg-align-items-center bg-light p-0">
                 <embed src="{{ url_for('static', filename='pdfs/aluno_sangue_bom.pdf') }}" type="application/pdf" width="100%" height="100%" class="pdf-embed">
-            </div>
+            </aside>
             <!-- PDF -->
 
-            <div class="col-lg-6 d-flex justify-content-center align-items-center p-0 text-light">
-                <div class="ml-2 mr-2">
-                    <h2 class="mb-3 ml-3">A importância de doar sangue!</h2> <!-- Título fora do <p> -->
-                        <p class="m-3">
+            <div class="col-lg-6 d-flex justify-content-start align-items-center p-0 text-light">
+                <article class="ml-2 mr-2">
+                    <h2>A importância de doar sangue!</h2> <!-- Título fora do <p> -->
+                        <p>
                             A doação de sangue é um ato de generosidade que pode salvar vidas e fazer 
                             uma diferença significativa na comunidade. O sangue é um recurso vital para 
                             o tratamento de diversas condições médicas, como acidentes, cirurgias, 
@@ -37,58 +37,72 @@
                             No entanto, os estoques de sangue nos bancos de sangue são frequentemente baixos, 
                             e a necessidade de doações é constante.
                         </p>
-                        <p class="m-3">
+                        <p>
                             Ao doar sangue, você se torna parte de uma rede de solidariedade que oferece 
                             esperança e apoio a pessoas em momentos críticos. Cada doação pode beneficiar 
                             até quatro pessoas, dependendo dos componentes do sangue que são separados e 
                             utilizados. Além disso, a doação de sangue é um processo simples, rápido e 
                             seguro, que não exige muito tempo, mas tem um impacto duradouro.
                         </p>
-                        <p class="m-3">
+                        <p>
                             Doar sangue também é um exemplo de responsabilidade social. Em tempos de 
                             emergência, como desastres naturais ou pandemias, os estoques de sangue podem 
                             se esgotar rapidamente, o que torna a doação ainda mais crucial. Mesmo em tempos 
                             tranquilos, a necessidade de sangue é contínua, já que ele tem uma vida útil 
                             limitada e deve ser constantemente renovado.
                         </p>
-                        <p class="m-3">
+                        <p>
                             A conscientização sobre a importância de doar sangue e a remoção de mitos sobre 
                             o processo podem ajudar a aumentar o número de doadores e garantir que o sistema 
                             de saúde tenha os recursos necessários para salvar vidas. A doação de sangue é 
                             um gesto simples, mas de valor incalculável, e pode ser o primeiro passo para 
                             fazer a diferença na vida de alguém.
                         </p>
-                </div>
+                </article>
             </div>
-        </div>
+        </main>
 
         <!-- Footer -->
-        <footer class="bg-red text-light text-center py-3 mt-auto w-100 page-footer">
-            <div class="container d-flex justify-content-between">
-                <!-- Lista de colaboradores -->
-                <div class="text-left">
-                    <ul class="list-unstyled">
-                        <li><strong style="font-size: 1.2em;">Vinicius Luciano da Silva</strong></li>
-                        <li>Éder Fabiano da Silva</li>
-                        <li>Fabio Diogo Torres</li>
-                        <li>Táfnes Diogo Torres</li>
-                    </ul>
-                </div>
+        <div class="container">
+            <footer class="text-light text-center py-3 mt-auto w-100 page-footer">
+                <div class="row justify-content-between">
+                    <!-- Lista de colaboradores -->
+                    <div class="col col-12 col-md-6 footer-left">
+                        <ul class="list-unstyled">
+                            <li>
+                                <strong>Vinicius Luciano da Silva</strong>
+                                <a href="https://www.linkedin.com/in/vinicius-luciano-520995275/" target="_blank">
+                                    <i class="fa-brands fa-linkedin"></i>
+                                </a>
+                                <a href="https://www.instagram.com/vinicius.luciano.927/" target="_blank">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <strong>Táfnes Diogo Torres</strong>
+                                <a href="https://www.linkedin.com/in/tafnesdiogo/" target="_blank">
+                                    <i class="fa-brands fa-linkedin"></i>
+                                </a>
+                                <a href="https://www.instagram.com/tafnesdiogo/" target="_blank">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </a>
+                                </li>
+                            <li>Éder Fabiano da Silva</li>
+                            <li>Fabio Diogo Torres</li>
+                        </ul>
+                    </div>
 
-                <!-- Links para redes sociais -->
-                <div class="text-right">
-                    <a href="https://www.linkedin.com/in/vinicius-luciano-520995275/" target="_blank" class="text-dark mx-2">
-                        <!-- <img src="{{ url_for('static', filename='imgs/linkedin.png') }}" alt="LinkedIn" width="50"> -->
-                        <i class="fa-brands fa-linkedin"></i>
-                    </a>
-                    <a href="https://www.instagram.com/vinicius.luciano.927/" target="_blank" class="text-dark mx-2">
-                        <!-- <img src="{{ url_for('static', filename='imgs/instagram.png') }}" alt="Instagram" width="50"> -->
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
+                    <!-- Links para redes sociais -->
+                    <div class="col col-12 col-md-6 footer-right">
+                        <p>Doe sangue, salve vidas.</p>
+                        <p>Cada doação é um ato de esperança.</p>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <p>&copy; 2024 Fire Force. Todos os direitos reservados.</p>
-        </footer>
+                <img src="{{ url_for('static', filename='imgs/blood-drop-angel-wings.png') }}" width="50px">
+                <p>&copy; 2024 Fire Force. Todos os direitos reservados.</p>
+            </footer>
+        </div>
     </div>
 
     <!-- Button Modal-->
@@ -114,9 +128,21 @@
                     </div>
                     <!-- Campo de entrada de mensagem -->
                     <div class="input-group">
-                        <input type="text" class="form-control" id="user-message" placeholder="Digite sua mensagem...">
+                        <input type="text" class="form-control" id="user-message" placeholder="Digite sua mensagem ou escolha uma opção abaixo">
                         <button class="btn btn-primary" id="send-message">Enviar</button>
                     </div>
+                    <ul class="help-topics">
+                        <li>Por que é importante doar sangue?</li>
+                        <li>Quem pode doar sangue?</li>
+                        <li>O que impede a doação de sangue?</li>
+                        <li>Quanto sangue é retirado em cada doação?</li>
+                        <li>É seguro?</li>
+                        <li>Com que frequência posso doar sangue?</li>
+                        <li>O que acontece com o sangue doado?</li>
+                        <li>É necessário estar em jejum?</li>
+                        <li>Quanto tempo dura a doação de sangue?</li>
+                        <li>Quais documentos são necessários para doar?</li>
+                    </ul>
                 </div>
             </div>
         </div>
