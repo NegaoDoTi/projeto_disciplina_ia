@@ -261,7 +261,7 @@ main article {
 }
 
 main article h2 {
-    margin: 0 0 1rem 1rem;
+    margin: 1rem 0 1rem 1rem;
 }
 
 main article p {
@@ -280,6 +280,26 @@ embed.pdf-embed {
 }
 
 @media (max-width: 991.98px) {
+    .mb-md-0 {
+        margin-bottom: 0 !important;
+    }
+
+    .me-md-0 {
+        margin-right: auto;
+    }
+
+    .ms-md-4 {
+        margin-left: 1.5rem !important;
+    }
+
+    .mt-md-2 {
+        margin-top: 0.5rem !important;
+    }
+
+    .justify-content-md-start {
+        justify-content: start !important;
+    }
+
     main aside.pdf-embed-container {
         height: 50vh;
     }
