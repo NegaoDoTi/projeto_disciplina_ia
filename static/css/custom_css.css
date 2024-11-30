@@ -309,7 +309,7 @@ embed.pdf-embed {
     }
 
     embed.pdf-embed {
-        width: calc(100% - 17px);
+        width: calc(100% + 17px);
         height: calc(50vh + 57px);
     }
 }
