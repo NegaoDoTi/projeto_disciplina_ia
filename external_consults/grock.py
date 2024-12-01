@@ -3,6 +3,16 @@ from os import getenv
 from json import dumps
 
 def consult_grock_ai(message:str) -> str:
+    """
+    Fun o que realiza uma consulta a intelig ncia artificial do GROCK,
+    para que a mesma possa responder a duvida passada por par metro.
+
+    Args:
+        message (str): a duvida que deve ser respondida.
+
+    Returns:
+        str: a resposta  duvida.
+    """
     try:
         body = {
             "messages" : [

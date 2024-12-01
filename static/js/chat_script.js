@@ -10,6 +10,13 @@ mensagemUsuario.addEventListener('keypress', function(e) {
     if (e.key == 'Enter') enviarMensagem()
 })
 
+/**
+ * Envia a mensagem digitada pelo usu rio para o servidor
+ * e atualiza o chat com a resposta.
+ * @fires fetch
+ * @listens mensagemUsuario#keypress
+ * @listens sendMessageBtn#click
+ */
 function enviarMensagem() {
     const userMessage = mensagemUsuario.value.trim()
     console.log('enviando mensagem', userMessage)
@@ -52,6 +59,17 @@ function enviarMensagem() {
     }
 }
 
+
+/**
+ * Formata um texto Markdown para HTML.
+ * 
+ * Substitui:
+ *  - Quebras de linha (\n) por <br>
+ *  - ***texto*** por <b><i>texto</i></b>
+ *  - **texto** por <b>texto</b>
+ *  - *texto* por <i>texto</i>
+ *  - ~~texto~~ por 
+**/
 function formatarTexto(input) {
     // Substitui quebras de linha por <br>
     let resultado = input.replace(/\n/g, '<br>');
@@ -71,6 +89,13 @@ function formatarTexto(input) {
     return resultado;
 }
 
+/**
+ * Gera o HTML para uma mensagem do chat.
+ * 
+ * @param {string} classe - A classe CSS para a mensagem (user ou bot).
+ * @param {string} mensagem - O texto da mensagem.
+ * @returns {string} O HTML da mensagem.
+ */
 function gerarTexto(classe, mensagem) {
     mensagem = mensagem
 
@@ -87,6 +112,15 @@ function gerarTexto(classe, mensagem) {
     return `<div class="message ${classe}-message"><h6>${origem}</h6><p>${mensagem}</p></div>`
 }
 
+/**
+ * Fun o chamada ao clicar em uma pergunta sugerida na lista.
+ * 
+ * Verifica se o usu rio j  digitou alguma mensagem e se sim, pergunta se ele
+ * deseja continuar e perder a mensagem digitada. Se sim, a mensagem digitada
+ *   substitu da pela pergunta sugerida e a mensagem   enviada.
+ * 
+ * @param {Event} e - O evento de clique na pergunta sugerida.
+ */
 function fazerPerguntaSugerida(e) {
     let perguntaSugerida = e.target
     let pergunta = perguntaSugerida.innerText
@@ -97,6 +131,12 @@ function fazerPerguntaSugerida(e) {
         enviarPergunta()
     }
 
+    /**
+     * Fun o chamada quando se clica em uma pergunta sugerida.
+     * Envia a pergunta para o servidor e remove a pergunta da lista.
+     * 
+     * @private
+     */
     function enviarPergunta() {
         console.log('enviando pergunta')
         mensagemUsuario.value = pergunta
