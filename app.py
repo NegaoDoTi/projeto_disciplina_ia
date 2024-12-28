@@ -13,4 +13,4 @@ app.config["SECRECT_KEY"] = getenv("SECRECT_KEY")
 app.register_blueprint(index_routes)
 
 if __name__ == "__main__":
-    app.run("localhost", port=5000)
+    app.run("localhost", port=5000, debug=app.config["DEBUG"])
