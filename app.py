@@ -1,9 +1,12 @@
 from flask import Flask
 from routes.index import index_routes
 from config.config import SECRECT_KEY, PORT
+from flask_wtf import CSRFProtect
 
 app = Flask(__file__)
-app.config["SECRECT_KEY"] = SECRECT_KEY
+app.secret_key = SECRECT_KEY
+
+csrf = CSRFProtect(app)
 
 app.register_blueprint(index_routes)
 

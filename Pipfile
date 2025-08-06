@@ -7,6 +7,7 @@ name = "pypi"
 flask = "*"
 python-dotenv = "*"
 requests = "*"
+flask-wtf = "==1.2.2"
 
 [dev-packages]
 

@@ -1,5 +1,6 @@
 from flask import render_template, jsonify
 from external_consults.grock import consult_grock_ai
+from flask_wtf.csrf import validate_csrf, CSRFError
 
 class Index:
     
@@ -45,10 +46,22 @@ class Index:
             mensagem de erro.
         """
         if req.is_json:
+            try:
+                csrf_token = req.headers.get("X-CSRFToken")
+            except:
+                result = {"message" : "CSRF Token não fornecido!"}
+                return jsonify(result), 401
+            
             data = req.get_json()
             if "message" not in data or not data["message"]:
                 return jsonify({"message" : 'Campo "message" ausente ou inválido.'}), 400
             
+            try:
+                validate_csrf(csrf_token)
+            except CSRFError:
+                result = {"message" : "Proteção contra cross site scripting, forneça o token correto para conseguir realiar esta operação"}
+                return jsonify(result), 401
+                
             grock_message = consult_grock_ai(data["message"])
             
             result = {"message" : f"{grock_message}"}

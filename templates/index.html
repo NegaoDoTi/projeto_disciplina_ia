@@ -128,6 +128,7 @@
                     </div>
                     <!-- Campo de entrada de mensagem -->
                     <div class="input-group">
+                        <input type="hidden" class="form-control" name="csrf_token" id="csrf-token" hidden="true" value="{{ csrf_token() }}">
                         <input type="text" class="form-control" id="user-message" placeholder="Digite sua mensagem ou escolha uma opção abaixo">
                         <button class="btn btn-primary" id="send-message">Enviar</button>
                     </div>

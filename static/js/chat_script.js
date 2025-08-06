@@ -1,5 +1,6 @@
 let sendMessageBtn = document.getElementById('send-message')
 let mensagemUsuario = document.getElementById('user-message')
+let crsfToken = document.getElementById('csrf-token')
 
 
 document.querySelectorAll('ul.help-topics li').forEach(topic => {
@@ -21,6 +22,8 @@ function enviarMensagem() {
     const userMessage = mensagemUsuario.value.trim()
     console.log('enviando mensagem', userMessage)
 
+    const csrfTokenValue = crsfToken.value.trim()
+
     if (userMessage !== "") {
         const chatBox = document.getElementById('chat-box')
         chatBox.innerHTML += gerarTexto('user', userMessage)
@@ -40,7 +43,8 @@ function enviarMensagem() {
         fetch('/', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                "X-CSRFToken" : `${csrfTokenValue}`
             },
             body: JSON.stringify({ message: userMessage })
         })
