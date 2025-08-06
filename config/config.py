@@ -5,3 +5,4 @@ load_dotenv()
 
 SECRECT_KEY = getenv("SECRECT_KEY")
 GROCK_API_KEY = getenv("GROCK_API_KEY")
+PORT = getenv("PORT")
