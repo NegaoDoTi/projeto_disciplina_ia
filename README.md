@@ -47,4 +47,4 @@ Linux
 
 1. Dentro da pasta do projeto já com todas dependencias instaladas.
 2. Abra terminal dentro da pasta do projeto.
-3. Execute os seguintes comandos: "docker run -d -p 5000:5000 projeto_ia
+3. Execute os seguintes comandos: "docker run -d -p 5000:5000 projeto_ia"
