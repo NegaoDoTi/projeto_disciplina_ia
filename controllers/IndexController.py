@@ -59,7 +59,7 @@ class Index:
             try:
                 validate_csrf(csrf_token)
             except CSRFError:
-                result = {"message" : "Proteção contra cross site scripting, forneça o token correto para conseguir realiar esta operação"}
+                result = {"message" : "Proteção contra cross site scripting, forneça o token correto para conseguir realizar esta operação"}
                 return jsonify(result), 401
                 
             grock_message = consult_grock_ai(data["message"])
