@@ -1,6 +1,6 @@
 from requests import post
-from os import getenv
 from json import dumps
+from config.config import GROCK_API_KEY
 
 def consult_grock_ai(message:str) -> str:
     """
@@ -25,13 +25,13 @@ def consult_grock_ai(message:str) -> str:
                     "content" : f"{message}"
                 }
             ],
-            "model" : "grok-beta",
+            "model" : "grok-3-mini",
             "stream" : False,
             "temperature" : 0
         }
         header = {
             "Content-Type" : "application/json",
-            "Authorization" : f'Bearer {getenv("GROCK_API_KEY")}'
+            "Authorization" : f'Bearer {GROCK_API_KEY}'
         }
         
         result = post("https://api.x.ai/v1/chat/completions", data=dumps(body), headers=header)

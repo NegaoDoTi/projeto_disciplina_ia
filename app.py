@@ -1,13 +1,9 @@
 from flask import Flask
-from dotenv import load_dotenv
-from os import getenv
 from routes.index import index_routes
-
-load_dotenv()
+from config.config import SECRECT_KEY
 
 app = Flask(__file__)
-app.config["ENV"] = getenv("FLASK_ENV")
-app.config["SECRECT_KEY"] = getenv("SECRECT_KEY")
+app.config["SECRECT_KEY"] = SECRECT_KEY
 
 app.register_blueprint(index_routes)
 
