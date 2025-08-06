@@ -38,13 +38,13 @@ Linux
 
 # Como executar o projeto
 
-1. Dentro da pasta do projeto já com todas dependencias instaladas.
-2. Abra terminal dentro da pasta do projeto.
-3. Você deve ativar o ambiente virtual utilizando o comando: "pipenv shell".
-4. Agora para iniciar você utilizar o seguinte comando: "pipenv run python app.py".
+    1. Dentro da pasta do projeto já com todas dependencias instaladas.
+    2. Abra terminal dentro da pasta do projeto.
+    3. Você deve ativar o ambiente virtual utilizando o comando: "pipenv shell".
+    4. Agora para iniciar você utilizar o seguinte comando: "pipenv run python app.py".
 
 # Como executar o projeto no docker
 
-1. Dentro da pasta do projeto já com todas dependencias instaladas.
-2. Abra terminal dentro da pasta do projeto.
-3. Execute os seguintes comandos: "docker run -d -p 5000:5000 projeto_ia"
+    1. Dentro da pasta do projeto já com todas dependencias instaladas.
+    2. Abra terminal dentro da pasta do projeto.
+    3. Execute os seguintes comandos: "docker run -d -p 5000:5000 projeto_ia"
